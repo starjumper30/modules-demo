@@ -33,6 +33,21 @@
     "demo-e2e": {
       "tags": [],
       "implicitDependencies": ["demo"]
+    },
+    "demo-lib": {
+      "tags": []
+    },
+    "demo-lib-copy": {
+      "tags": []
+    },
+    "demo-lib2": {
+      "tags": []
+    },
+    "demo-node": {
+      "tags": []
+    },
+    "util": {
+      "tags": []
     }
   }
 }

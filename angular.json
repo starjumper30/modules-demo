@@ -40,7 +40,9 @@
                   "with": "apps/demo/src/environments/environment.prod.ts"
                 }
               ],
-              "outputHashing": "all"
+              "sourceMap": true,
+              "outputHashing": "none",
+              "namedChunks": true
             },
             "development": {
               "buildOptimizer": false,
@@ -113,6 +115,152 @@
           "outputs": ["{options.outputFile}"],
           "options": {
             "lintFilePatterns": ["apps/demo-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "demo-lib": {
+      "projectType": "library",
+      "root": "libs/demo-lib",
+      "sourceRoot": "libs/demo-lib/src",
+      "prefix": "modules-demo-nx",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/demo-lib"],
+          "options": {
+            "jestConfig": "libs/demo-lib/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/demo-lib/src/**/*.ts",
+              "libs/demo-lib/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "demo-lib-copy": {
+      "projectType": "library",
+      "root": "libs/demo-lib-copy",
+      "sourceRoot": "libs/demo-lib-copy/src",
+      "prefix": "modules-demo-nx",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/demo-lib-copy"],
+          "options": {
+            "jestConfig": "libs/demo-lib-copy/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/demo-lib-copy/src/**/*.ts",
+              "libs/demo-lib-copy/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "demo-lib2": {
+      "projectType": "library",
+      "root": "libs/demo-lib2",
+      "sourceRoot": "libs/demo-lib2/src",
+      "prefix": "modules-demo-nx",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/demo-lib2"],
+          "options": {
+            "jestConfig": "libs/demo-lib2/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/demo-lib2/src/**/*.ts",
+              "libs/demo-lib2/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "demo-node": {
+      "root": "apps/demo-node",
+      "sourceRoot": "apps/demo-node/src",
+      "projectType": "application",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/demo-node",
+            "main": "apps/demo-node/src/main.ts",
+            "tsConfig": "apps/demo-node/tsconfig.app.json",
+            "assets": []
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": []
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "demo-node:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["apps/demo-node/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/demo-node"],
+          "options": {
+            "jestConfig": "apps/demo-node/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "util": {
+      "projectType": "library",
+      "root": "libs/util",
+      "sourceRoot": "libs/util/src",
+      "prefix": "modules-demo-nx",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/util"],
+          "options": {
+            "jestConfig": "libs/util/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/util/src/**/*.ts",
+              "libs/util/src/**/*.html"
+            ]
           }
         }
       }
