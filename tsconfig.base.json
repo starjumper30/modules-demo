@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@modules-demo-nx/demo-lib": ["libs/demo-lib/src/index.ts"],
+      "@modules-demo-nx/demo-lib-copy": ["libs/demo-lib-copy/src/index.ts"],
+      "@modules-demo-nx/demo-lib2": ["libs/demo-lib2/src/index.ts"],
+      "@modules-demo-nx/util-ng": ["libs/util-ng/src/index.ts"],
+      "@modules-demo-nx/util-node": ["libs/util-node/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
