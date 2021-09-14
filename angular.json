@@ -238,7 +238,8 @@
             "outputPath": "dist/apps/demo-node",
             "main": "apps/demo-node/src/main.ts",
             "tsConfig": "apps/demo-node/tsconfig.app.json",
-            "assets": []
+            "assets": [],
+            "externalDependencies": "none"
           },
           "configurations": {
             "production": {
