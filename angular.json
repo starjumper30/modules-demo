@@ -330,6 +330,17 @@
             "assets": ["libs/util-node/*.md"]
           }
         },
+        "buildEsm": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/util-node/esm2015",
+            "tsConfig": "libs/util-node/tsconfig.lib.esm.json",
+            "packageJson": "libs/util-node/package.json",
+            "main": "libs/util-node/src/index.ts",
+            "assets": ["libs/util-node/*.md"]
+          }
+        },
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "outputs": ["{options.outputFile}"],

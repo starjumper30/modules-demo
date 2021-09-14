@@ -1,4 +1,6 @@
 {
   "name": "@modules-demo-nx/util-node",
-  "version": "0.0.1"
+  "version": "0.0.1",
+  "module": "esm2015/src/index.js",
+  "esm2015": "esm2015/src/index.js"
 }
